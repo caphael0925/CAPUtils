@@ -11,7 +11,7 @@ import java.net.URI;
 
 public class HDFSInputStreamConf extends InputStreamConf {
 	
-	static class NoHadoopUserSetException extends Exception{
+	public static class NoHadoopUserSetException extends Exception{
 		/**
 		 * 
 		 */

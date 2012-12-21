@@ -1,23 +1,6 @@
 package com.caphael.jcrypto;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.util.TreeMap;
-
-import javax.crypto.SecretKey;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.FSDataInputStream;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
-import org.apache.hadoop.conf.Configuration;
-
 import com.caphael.fsconf.HDFSInputStreamConf;
-
 
 public class HDFSTest {
 
