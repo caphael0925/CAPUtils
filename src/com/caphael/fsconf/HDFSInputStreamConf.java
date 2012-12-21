@@ -1,4 +1,4 @@
-package com.caphael.hdfsconf;
+package com.caphael.fsconf;
 
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FSDataInputStream;
@@ -27,15 +27,15 @@ public class HDFSInputStreamConf extends InputStreamConf {
 	FileSystem FS = null;
 	FSDataInputStream IN = null;
 	
-	public HDFSInputStreamConf() throws Exception {
+	public HDFSInputStreamConf() throws NoHadoopUserSetException {
 		// TODO Auto-generated constructor stub
 		super();
 		try{
 			CONF = new Configuration();
 			CONF.set("hadoop.job.ugi", HUSER);
 		}catch (Exception e){
-			e = new NoHadoopUserSetException();
-			throw e;
+			NoHadoopUserSetException ne = new NoHadoopUserSetException();
+			throw ne;
 		}
 
 	}
@@ -44,16 +44,16 @@ public class HDFSInputStreamConf extends InputStreamConf {
 		HUSER=huser+","+huser;
 	}
 	
-	public InputStreamReader getInputStream(String fname) {
+	public void initInputStream(String fname) throws Exception{
+		super.initInputStream(fname);
 		try{
-			FS = FileSystem.get(URI.create(fname), CONF);
-			IN = FS.open(new Path(fname));
-			return new InputStreamReader(IN,CHARSET);
+			FS = FileSystem.get(URI.create(INFNAME), CONF);
+			IN = FS.open(INFPATH);
+			ISR =new InputStreamReader(IN,CHARSET);
 		}catch(FileNotFoundException e){
-			return null;
+			ISR = null;
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return null;
 	}
 }

@@ -1,6 +1,6 @@
 package com.caphael.jcrypto;
 
-import com.caphael.hdfsconf.InputStreamConf;
+import com.caphael.fsconf.InputStreamConf;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -132,5 +132,9 @@ public class HCrypto{
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	public void desDecryptSTD(String fname){
+		
 	}
 }
