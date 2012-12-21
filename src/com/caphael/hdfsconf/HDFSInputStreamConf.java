@@ -1,4 +1,4 @@
-package com.caphael.jcrypto;
+package com.caphael.hdfsconf;
 
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FSDataInputStream;

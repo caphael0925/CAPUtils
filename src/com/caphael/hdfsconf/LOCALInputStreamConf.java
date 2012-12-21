@@ -1,4 +1,4 @@
-package com.caphael.jcrypto;
+package com.caphael.hdfsconf;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;

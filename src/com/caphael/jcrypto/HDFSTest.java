@@ -16,6 +16,8 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;
 
+import com.caphael.hdfsconf.HDFSInputStreamConf;
+
 
 public class HDFSTest {
 

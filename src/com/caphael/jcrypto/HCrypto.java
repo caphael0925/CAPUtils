@@ -1,6 +1,6 @@
 package com.caphael.jcrypto;
 
-import com.caphael.jcrypto.MobileNumberCrypto;
+import com.caphael.hdfsconf.InputStreamConf;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
