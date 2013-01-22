@@ -13,6 +13,14 @@ public class StdioDecrypto {
 	
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
+		
+		if (1!=args.length){
+			System.out.println("Please give the only parameter KEYFILENAME");
+			System.exit(1);
+		}
+		
+		KEYFNAME = args[0];
+		
 		HDFSInputStreamConf hconf = new HDFSInputStreamConf();
 		StdioInputStreamConf stdconf = new StdioInputStreamConf();
 		
@@ -29,7 +37,7 @@ public class StdioDecrypto {
 		
 		while (true) {
 			line = br.readLine();
-			if (0==line.length()){
+			if (null==line){
 				break;
 			}
 			field = line.split("[|]");
