@@ -3,6 +3,8 @@ package com.caphael.fsconf;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+import com.caphael.fsconf.InputStreamConf;
+
 public class LocalInputStreamConf extends InputStreamConf {
 	
 	public LocalInputStreamConf() {

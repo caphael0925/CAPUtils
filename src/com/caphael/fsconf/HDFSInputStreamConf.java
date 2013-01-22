@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.URI;
 
+import com.caphael.fsconf.InputStreamConf;
+
 public class HDFSInputStreamConf extends InputStreamConf {
 	
 	public static class NoHadoopUserSetException extends Exception{
@@ -23,7 +25,7 @@ public class HDFSInputStreamConf extends InputStreamConf {
 	}
 	
 	Configuration CONF=null;
-	String HUSER = "";
+	String HUSER = null;
 	FileSystem FS = null;
 	FSDataInputStream IN = null;
 	
@@ -32,28 +34,32 @@ public class HDFSInputStreamConf extends InputStreamConf {
 		super();
 		try{
 			CONF = new Configuration();
-			CONF.set("hadoop.job.ugi", HUSER);
 		}catch (Exception e){
 			NoHadoopUserSetException ne = new NoHadoopUserSetException();
 			throw ne;
 		}
-
-	}
-	public HDFSInputStreamConf(String huser) {
-		// TODO Auto-generated constructor stub
-		HUSER=huser+","+huser;
 	}
 	
-	public void initInputStream(String fname) throws Exception{
-		super.initInputStream(fname);
+	private void setHadoopUser(String huser){
+		HUSER = huser+","+huser;
+	}
+	
+	public void initInputStream(String fname,String huser,String charset) throws Exception{
+		super.initInputStream(fname,charset);
+		setHadoopUser(huser);
 		try{
+			CONF.set("hadoop.job.ugi", HUSER);
 			FS = FileSystem.get(URI.create(INFNAME), CONF);
 			IN = FS.open(INFPATH);
-			ISR =new InputStreamReader(IN,CHARSET);
+			ISR =new InputStreamReader(IN,charset);
 		}catch(FileNotFoundException e){
 			ISR = null;
 		}catch (Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public void initInputStream(String fname) throws Exception {
+		initInputStream(fname,HUSER,CHARSET);
 	}
 }

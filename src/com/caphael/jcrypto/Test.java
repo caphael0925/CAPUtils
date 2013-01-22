@@ -9,7 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MobileNumberCrypto mc = new MobileNumberCrypto();
-		System.out.println(mc.MobileNumberEnCrypt("18611137646"));
+		System.out.println(mc.MobileNumberEnCrypt("13714834041"));
 	}
 
 }

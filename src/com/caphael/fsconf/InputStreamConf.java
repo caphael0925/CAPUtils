@@ -32,9 +32,21 @@ public class InputStreamConf {
 		CHARSET = Charset.defaultCharset().name();
 	}
 	
-	public void initInputStream(String fname) throws Exception{
+	private void setCharset(String charset){
+		CHARSET = charset;
+	}
+	
+	private void setFilename(String fname){
 		INFNAME = fname;
 		INFPATH = new Path(INFNAME);
+	}
+	
+	public void initInputStream(String fname,String charset) throws Exception{
+		setCharset(charset);
+		setFilename(fname);
+	}
+	public void initInputStream(String fname) throws Exception{
+		setFilename(fname);
 	}
 	
 	public InputStreamReader getInputStream(){
@@ -94,4 +106,16 @@ public class InputStreamConf {
 		}
 		return null;
 	}
+	
+	public void closeISR(){
+		if (null!=ISR){
+			try {
+				ISR.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }

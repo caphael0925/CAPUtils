@@ -1,8 +1,9 @@
 package com.caphael.fsconf;
 
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.lang.System;
+
+import com.caphael.fsconf.InputStreamConf;
 
 public class StdioInputStreamConf extends InputStreamConf {
 	
