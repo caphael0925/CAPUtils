@@ -4,6 +4,8 @@ import org.apache.hadoop.io.ArrayWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
+import com.caphael.utils.StringUtils;
+
 public class TextArrayWritable extends ArrayWritable{
 
 	int SIZE;
@@ -20,6 +22,7 @@ public class TextArrayWritable extends ArrayWritable{
 	} 
 	
 	public void setStringArray(String[] values){
+		SIZE = values.length;
 		Text[] writables = new Text[values.length];
 		for (int i=0;i<SIZE;i++){
 			writables[i]= new Text(values[i]);
@@ -42,6 +45,10 @@ public class TextArrayWritable extends ArrayWritable{
 		TextArrayWritable m,n;
 		m= new TextArrayWritable(a);
 		n= new TextArrayWritable(b);
-		System.out.println(m.equals(n));			
+		System.out.println(m.toString());			
+	}
+	
+	public String toString(){
+		return StringUtils.join(toStringArray());
 	}
 }

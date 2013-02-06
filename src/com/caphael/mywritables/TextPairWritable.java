@@ -10,6 +10,7 @@ import org.apache.hadoop.io.WritableComparable;
 public class TextPairWritable implements WritableComparable<TextPairWritable> {
     private Text FIRST=null;
     private Text SECOND=null;
+    private static String SEPSTR = ",";
 
     public TextPairWritable() {
         set(new Text(), new Text());
@@ -66,7 +67,7 @@ public class TextPairWritable implements WritableComparable<TextPairWritable> {
 
     @Override
     public String toString() {
-        return FIRST + "\t" + SECOND;
+        return FIRST + SEPSTR + SECOND;
     }
 
     public int compareTo(TextPairWritable tp) {
