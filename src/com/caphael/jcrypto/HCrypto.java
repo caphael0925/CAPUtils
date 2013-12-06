@@ -73,7 +73,7 @@ public class HCrypto{
 		return null;
 	}
 
-	public boolean loadDesKeys(String keypath,InputStreamConf isconf) {
+	public boolean loadDesKeys(String keypath,InputStreamConf isconf) throws Exception {
 		
 		for (int i=0; i < 0xffff; ++i) {
 			String keyid = String.format("%02d", i);
@@ -84,6 +84,7 @@ public class HCrypto{
 			}		
 			desKeys.put(keyid, deskey);
 			desSecretKeys.put(keyid, desBuildKey(deskey));
+			isconf.close();
 		}
 		
 		return desKeys.size() > 0;

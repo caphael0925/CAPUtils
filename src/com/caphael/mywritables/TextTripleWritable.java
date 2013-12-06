@@ -61,7 +61,7 @@ public class TextTripleWritable implements WritableComparable<TextTripleWritable
 
     @Override
     public int hashCode() {
-        return FIRST.hashCode() * 163 + SECOND.hashCode() + THIRD.hashCode();
+        return (FIRST.toString() + SEPSTR + SECOND.toString() + "SEPSTR" + THIRD.toString()).hashCode();
     }
 
     @Override
@@ -94,15 +94,17 @@ public class TextTripleWritable implements WritableComparable<TextTripleWritable
     
     public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TextTripleWritable ip1 = new TextTripleWritable("aaa","bsd","swe");
+		TextTripleWritable ip1 = new TextTripleWritable("8618611137646","86186111##7647","20121201010101");
 		TextTripleWritable ip2 = new TextTripleWritable("aaa","bsd","pwg");
 
-		System.out.println(ip1);
-		System.out.println(ip2);
-		System.out.println(ip1.equals(ip1));
-		System.out.println(ip1.equals(ip2));
-		System.out.println(ip1.compareTo(ip1));
-		System.out.println(ip1.compareTo(ip2));
+//		System.out.println(ip1);
+//		System.out.println(ip2);
+//		System.out.println(ip1.equals(ip1));
+//		System.out.println(ip1.equals(ip2));
+//		System.out.println(ip1.compareTo(ip1));
+//		System.out.println(ip1.compareTo(ip2));
+		System.out.println(ip1.hashCode());
+		System.out.println(ip2.hashCode());
 
 
 

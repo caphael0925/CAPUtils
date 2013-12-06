@@ -2,19 +2,24 @@
 <classpath>
 	<classpathentry excluding="com/Caphael/JCrypto/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/commons-cli-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/commons-configuration-1.6.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/google-collections-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-auth-0.23.1.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-common-0.23.1.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-hdfs-0.23.1.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-mapreduce-0.23.1.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-0.23.1.jar"/>
-	<classpathentry kind="lib" path="lib/hsqldb-1.8.0.7.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="lib/protobuf-java-2.4.0a.jar"/>
-	<classpathentry kind="lib" path="lib/guava-r09.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/google-collections-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/guava-r09.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-auth-0.23.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-common-0.23.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-hdfs-0.23.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-lzo-0.4.17-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-mapreduce-0.23.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hadoop-mapreduce-client-core-0.23.1.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/hsqldb-1.8.0.7.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/home/caphael/workspace/ShareLibs/protobuf-java-2.4.0a.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

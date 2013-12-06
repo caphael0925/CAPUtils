@@ -6,6 +6,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.conf.Configuration;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 
@@ -42,7 +43,7 @@ public class HDFSOutputStreamConf extends OutputStreamConf {
 		}
 	}
 	
-	private void setHadoopUser(String huser){
+	public void setHadoopUser(String huser){
 		HUSER = huser+","+huser;
 	}
 	
@@ -50,7 +51,7 @@ public class HDFSOutputStreamConf extends OutputStreamConf {
 		super.initOutputStream(fname,charset);
 		setHadoopUser(huser);
 		CONF.set("hadoop.job.ugi", HUSER);
-		FS = FileSystem.get(URI.create(OUTFNAME), CONF);
+		FS = FileSystem.newInstance(URI.create(OUTFNAME), CONF);
 		OUT = FS.create(OUTFPATH);
 	}
 	
@@ -58,9 +59,17 @@ public class HDFSOutputStreamConf extends OutputStreamConf {
 		initOutputStream(fname,HUSER,CHARSET);
 	}
 
-
+	public void initOutputStream(String fname,String huser) throws Exception {
+		initOutputStream(fname,huser,CHARSET);
+	}
+	
 	public void writeLine(String line) throws IOException{
-		OUT.writeChars(line+"\n");
+		OUT.write((line+"\n").getBytes(CHARSET));
+	}
+	
+	public void write(String line) throws IOException{
+		OUT.write(line.getBytes(CHARSET));
+		close();
 	}
 	
 	@Override
@@ -69,13 +78,16 @@ public class HDFSOutputStreamConf extends OutputStreamConf {
 		if (null!=OUT){
 			OUT.close();
 		}
+		if (null!=FS){
+			FS.close();
+		}
 	}
 	
 	public static void main(String[] args) {
 		try {
-			String fname = "hdfs://mytest:9000/user/devuser/test/writetest";
+			String fname = "hdfs://mytest:9000/user/devuser/writetest";
 			HDFSOutputStreamConf conf = new HDFSOutputStreamConf();
-			conf.initOutputStream(fname);
+			conf.initOutputStream(fname,"devuser");
 			conf.writeLine("aaaaaaaaaaaaaaaa");
 			conf.writeLine("bbbbbbbbbbbbbbbb");
 			conf.close();

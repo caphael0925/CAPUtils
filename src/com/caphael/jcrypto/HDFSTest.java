@@ -8,7 +8,7 @@ public class HDFSTest {
 	 * @param args
 	 */
 	static String CITYFNAME = "hdfs://mytest:9000/user/devuser/test/haoduanbiao.umsc";
-	static String KEYFPATH = "hdfs://mytest:9000/user/devuser/test";
+	static String KEYFPATH = "hdfs://mytest:9000/user/devuser/configurations";
 	static String HUSER = "devuser";
 	static String CHARSET = "gb2312";
 	
@@ -19,9 +19,10 @@ public class HDFSTest {
 		hconf.initInputStream(KEYFPATH, HUSER, CHARSET);
 		try{
 			hc.loadDesKeys(KEYFPATH, hconf);
-//			System.out.println(hc.desDeCrypt("00107e2d39c85248cd05ef0ea106273ee7"));
+			System.out.println(hc.desDeCrypt("009ddd05190edf05108145c6cdce73d42e"));
+			System.out.println(hc.desDeCrypt("009ddd05190edf05108145c6cdce73d42e").substring(2,5));
 			System.out.println(("009ddd05190edf05108145c6cdce73d42e"));
-			System.out.println(hconf.getInFilename());
+			System.out.println(hc.toString());
 			System.out.println(hconf.getInFullFilename());
 		}catch (Exception e){
 //			e.printStackTrace();

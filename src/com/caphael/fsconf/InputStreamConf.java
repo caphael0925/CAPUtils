@@ -118,4 +118,8 @@ public class InputStreamConf {
 		}
 	}
 	
+	public void close() throws Exception {
+	if( ISR != null ) ISR.close();
+	}
+	
 }
